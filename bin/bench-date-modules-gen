@@ -10,12 +10,14 @@ use warnings;
 use Benchmark::Dumb qw(cmpthese);
 use DateTime;
 use Time::Moment;
+use Time::Piece ();
 
 cmpthese(
     0,
     {
         'DateTime     1k_now' => sub { DateTime    ->now for 1..1000 },
         'Time::Moment 1k_now' => sub { Time::Moment->now for 1..1000 },
+        'Time::Piece  1k_now' => sub { Time::Piece::gmtime for 1..1000 },
 
         'DateTime     1k_set' => sub { DateTime    ->new(year=>2015, month=>6, day=>19, hour=>14, minute=>7, second=>59) for 1..1000 },
         'Time::Moment 1k_set' => sub { Time::Moment->new(year=>2015, month=>6, day=>19, hour=>14, minute=>7, second=>59) for 1..1000 },
@@ -39,6 +41,6 @@ Sample output:
 1k_set: Generate a thousand date objects of a specific
 year/month/day/hour/minute/second.
 
-1k_now: Generate a thousand date objects containing current time (now()).
+1k_now: Generate a thousand date objects containing current time (e.g. now()).
 
 =head1 SEE ALSO

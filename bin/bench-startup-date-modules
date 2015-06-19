@@ -16,6 +16,7 @@ Benchmark::Command::run(
 
         'DateTime'            => [$^X, "-e", "use DateTime"],
         'Time::Moment'        => [$^X, "-e", "use Time::Moment"],
+        'Time::Piece'         => [$^X, "-e", "use Time::Piece"],
     },
 );
 
