@@ -1,0 +1,34 @@
+#!perl
+
+# DATE
+# VERSION
+
+use 5.010001;
+use strict;
+use warnings;
+
+use Benchmark::Command;
+
+Benchmark::Command::run(
+    undef,
+    {
+        'none'                => [$^X, "-e1"],
+
+        'DateTime'            => [$^X, "-e", "use DateTime"],
+        'Time::Moment'        => [$^X, "-e", "use Time::Moment"],
+    },
+);
+
+# ABSTRACT: Benchmark startup time of Perl date modules
+# PODNAME:
+
+=head1 SYNOPSIS
+
+ % bench-startup-date-modules
+
+Sample output:
+
+# COMMAND: perl bin/bench-startup-date-modules
+
+
+=head1 SEE ALSO
