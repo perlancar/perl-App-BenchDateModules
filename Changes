@@ -1,5 +1,10 @@
 Revision history for App-BenchDateModules
 
+0.02    2015-06-19 (PERLANCAR)
+
+	- Add Time::Piece.
+
+
 0.01    2015-06-19 (PERLANCAR)
 
         - First release.
